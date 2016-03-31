@@ -16,7 +16,7 @@ self.addEventListener('push', function(event) {
     silent:true
   });
   event.waitUntil(
-    fetch('http://kimg.auone.jp/pc/images/common/logo.png', {
+    fetch('https://kimg.auone.jp/pc/images/common/logo.png', {
         mode: 'cors',
         credentials: 'include'
     }).then(function(response){
