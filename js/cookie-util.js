@@ -23,7 +23,7 @@ function writeCookie(aValue, aName, aExpires) {
         }
 
         // クッキーの発行（書き込み）
-        document.cookie = name + "=" + escape(value) + "; expires=" + expires + + '; domain=.github.io'+'; path=/';
+        document.cookie = name + "=" + escape(value) + "; expires=" + expires + + '; domain=.github.io'+'; path=/; secure';
         return true;
     } else {
         return false;
