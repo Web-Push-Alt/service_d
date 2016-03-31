@@ -16,19 +16,18 @@ self.addEventListener('push', function(event) {
     silent:true
   });
   event.waitUntil(
-    fetch('https://kimg.auone.jp/pc/images/common/logo.png', {
+    fetch('https://web-push.github.io/WebPushControl/users.json', {
         mode: 'cors',
         credentials: 'include'
-    }).then(function(response){
+      }).then(function(response){
       if (response.status !== 200) {
         console.log('Looks like there was a problem. Status Code: ', response.status);
       } else {
-        console.log('Fetch success: ', response.status);
-        //response.text().then(function(textdata) {
-        //  console.log('text:', textdata);
-        //  var jsondata = JSON.parse(textdata);
-        //  checkLogin(jsondata);
-        //});
+        response.text().then(function(textdata) {
+          console.log('text:', textdata);
+          var jsondata = JSON.parse(textdata);
+          checkLogin(jsondata);
+        });
       }
     })
   );
