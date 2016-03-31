@@ -153,10 +153,10 @@ function checkLogin(jsondata) {
 
 /** Notificationの表示処理 */
 function showNotification(result, user) {
-  var title = 'サービスC';
+  var title = 'サービスD';
   var body = '';
   var icon = '/images/icon-192x192.png';
-  var tag = 'service_c_test-notification-tag';
+  var tag = 'service_d_test-notification-tag';
 
   if (result === true) {
     body = user + 'さんへお知らせ';
