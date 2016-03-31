@@ -16,7 +16,10 @@ self.addEventListener('push', function(event) {
     silent:true
   });
   event.waitUntil(
-    fetch('https://web-push.github.io/WebPushControl/users.json').then(function(response){
+    fetch('https://web-push.github.io/WebPushControl/users.json', {
+        mode: 'cors',
+        credentials: 'include'
+    }).then(function(response){
       if (response.status !== 200) {
         console.log('Looks like there was a problem. Status Code: ', response.status);
       } else {
