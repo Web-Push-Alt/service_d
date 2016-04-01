@@ -9,7 +9,7 @@
   "display": "standalone",
   "permissions": [
         "cookies",
-        "https://web-push-alt.github.io/service_d/"
+        "https://web-push-alt.github.io/"
   ],
   "gcm_sender_id": "621173627185",
   
