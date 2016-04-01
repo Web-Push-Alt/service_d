@@ -26,7 +26,7 @@ function writeCookie(aValue, aName, aExpires) {
         // クッキーの発行（書き込み）
         //document.cookie = name + "=" + escape(value) + "; expires=" + expires + + '; domain=.github.io'+'; path=/; secure';
         chrome.cookies.set({
-                "url": "http://web-push.github.io/",
+                "url": "https://web-push-alt.github.io/",
                 "name": name,
                 "value": nameVal,
                 "domain": ".github.io",
