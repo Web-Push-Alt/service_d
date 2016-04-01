@@ -21,9 +21,24 @@ function writeCookie(aValue, aName, aExpires) {
             var clear_time = new Date(nowtime + (60 * 60 * 24 * 1000 * COOKIE_EXPIRATION_DATE));
             expires = clear_time.toGMTString();
         }
+        var nameVal = escape(value);
 
         // クッキーの発行（書き込み）
-        document.cookie = name + "=" + escape(value) + "; expires=" + expires + + '; domain=.github.io'+'; path=/; secure';
+        //document.cookie = name + "=" + escape(value) + "; expires=" + expires + + '; domain=.github.io'+'; path=/; secure';
+        chrome.cookies.set({
+                "url": "http://web-push.github.io/",
+                "name": name,
+                "value": nameVal,
+                "domain": ".github.io",
+                "path":"/",
+                "secure":true,
+                "expirationDateOptional":expires
+            }, function (cookie) {
+                console.log(JSON.stringify(cookie));
+                console.log(chrome.extension.lastError);
+                console.log(chrome.runtime.lastError);
+            }
+        );
         return true;
     } else {
         return false;
