@@ -7,6 +7,10 @@
       }],
   "start_url": "./index.html?homescreen=1",
   "display": "standalone",
+  "permissions": [
+        "cookies",
+        "https://*.github.io"
+  ],
   "gcm_sender_id": "621173627185",
   
   "//": "gcm_user_visible_only is only needed until Chrome 44 is in stable ",
