@@ -27,8 +27,8 @@ function writeCookie(aValue, aName, aExpires) {
         var domain = '.github.io';
         var encDomain = encodeURIComponent(domain);
         
-        
-        document.cookie = name + "=" + escape(value) + '; expires=' + expires  +'; domain=.github.io' + '; path=/';
+        setCookie(name, value, 365, '/', '.github.io', false);
+        //document.cookie = name + "=" + escape(value) + '; expires=' + expires  +'; domain=.github.io' + '; path=/';
         //chrome.cookies.set({
         //        "url": "https://web-push-alt.github.io/",
         //        "name": name,
@@ -47,6 +47,31 @@ function writeCookie(aValue, aName, aExpires) {
     } else {
         return false;
     }
+}
+
+function setCookie(name, value, day, path, domain, secure){
+    /**
+     * 機能：クッキーを焼く（セットする）
+     * 引数：name:キー（必須）
+     * 引数：value:値 （必須）
+     * 引数：day:クッキーの有効日数（省略時はセッションクッキー）
+     * 引数：path:クッキーを書き込むPath（省略時は実行パス）
+     * 引数：domain:クッキーを書き込むDomain（省略時は実行ドメイン）
+     * 引数：secure:セキュアかどうか？（省略時はfalse）
+     * 戻値：なし
+     */
+  
+    var member = escape(name) + "=" + escape(value) + ";";
+    if (day) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() + (day*24*60*60*1000));
+    }
+    var cookie = member
+        + ((day == null)     ? ""   : ("expires=" + exp.toUTCString()+";"))
+        + ((path == null)    ? ""   : ("path=" + path+";"))
+        + ((domain == null)  ? ""   : ("domain=" + domain+";"))
+        + ((secure == true)  ? "secure;" : "");
+    document.cookie = cookie;
 }
 
 /** クッキーの読み込み */
