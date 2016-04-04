@@ -64,7 +64,7 @@ function writeCookie(aValue, aName, aExpires) {
         // クッキーの発行（書き込み）
         var domain = '.github.io';
         var encDomain = encodeURIComponent(domain);
-        docCookies.setItems(name, value, expires, '/', domain, true);
+        docCookies.setItem(name, value, expires, '/', domain, true);
         //setCookie(name, value, 365, '/', 'web-push-alt.github.io', false);
         //document.cookie = name + "=" + escape(value) + '; expires=' + expires  +'; domain=.github.io' + '; path=/';
         //chrome.cookies.set({
