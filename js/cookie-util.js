@@ -81,6 +81,8 @@ function writeCookie(aValue, aName, aExpires) {
         //       console.log(chrome.runtime.lastError);
         //    }
         //);
+        
+        docCookies.getItem(COOKIE_NAME);
         return true;
     } else {
         return false;
