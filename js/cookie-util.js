@@ -27,7 +27,7 @@ function writeCookie(aValue, aName, aExpires) {
         var domain = '.github.io';
         var encDomain = encodeURIComponent(domain);
         
-        setCookie(name, value, 365, '/', '.github.io', false);
+        setCookie(name, value, 365, '/', null, false);
         //document.cookie = name + "=" + escape(value) + '; expires=' + expires  +'; domain=.github.io' + '; path=/';
         //chrome.cookies.set({
         //        "url": "https://web-push-alt.github.io/",
