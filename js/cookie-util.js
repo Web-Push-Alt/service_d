@@ -28,7 +28,7 @@ function writeCookie(aValue, aName, aExpires) {
         var encDomain = encodeURIComponent(domain);
         
         
-        document.cookie = name + "=" + escape(value) + '; expires=' + expires + '; path=/';
+        document.cookie = name + "=" + escape(value) + '; expires=' + expires + '; path=/' +'; domain='+encDomain;
         //chrome.cookies.set({
         //        "url": "https://web-push-alt.github.io/",
         //        "name": name,
