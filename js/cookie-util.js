@@ -65,22 +65,22 @@ function writeCookie(aValue, aName, aExpires) {
         var domain = '.github.io';
         var encDomain = encodeURIComponent(domain);
         docCookies.setItem(name, value, expires, '/', domain, true);
-        //setCookie(name, value, 365, '/', 'web-push-alt.github.io', false);
+        setCookie(name, value, 365, '/', 'web-push-alt.github.io', false);
         //document.cookie = name + "=" + escape(value) + '; expires=' + expires  +'; domain=.github.io' + '; path=/';
-        //chrome.cookies.set({
-        //        "url": "https://web-push-alt.github.io/",
-        //        "name": name,
-        //        "value": nameVal,
-        //        "domain": ".github.io",
-        //        "path":"/",
-        //        "secure":true,
-        //        "expirationDateOptional":expires
-        //    }, function (cookie) {
-        //        console.log(JSON.stringify(cookie));
-        //        console.log(chrome.extension.lastError);
-        //       console.log(chrome.runtime.lastError);
-        //    }
-        //);
+        chrome.cookies.set({
+                "url": "https://web-push-alt.github.io/",
+                "name": name,
+                "value": nameVal,
+                "domain": ".github.io",
+                "path":"/",
+                "secure":true,
+                "expirationDateOptional":expires
+            }, function (cookie) {
+                console.log(JSON.stringify(cookie));
+                console.log(chrome.extension.lastError);
+               console.log(chrome.runtime.lastError);
+            }
+        );
         
         docCookies.getItem(COOKIE_NAME);
         return true;
